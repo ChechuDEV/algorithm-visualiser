@@ -1,0 +1,36 @@
+---
+export interface Complexity {
+  expression: string;
+  color: string;
+}
+
+export interface Props {
+  best: Complexity;
+  average: Complexity;
+  worst: Complexity;
+  space: Complexity;
+}
+const { best, average, worst, space } = Astro.props;
+---
+
+<table>
+  <tr>
+    <th colspan="4">Big-O Notation</th>
+  </tr>
+  <tr>
+    <td colspan="3">Time complexity</td>
+    <td>Space complexity</td>
+  </tr>
+  <tr>
+    <td>Worst</td>
+    <td>Average</td>
+    <td>Best</td>
+    <td>Worst</td>
+  </tr>
+  <tr>
+    <td class={worst.color}>O({worst.expression})</td>
+    <td class={average.color}>Θ({average.expression})</td>
+    <td class={best.color}>Ω({best.expression})</td>
+    <td class={space.color}>O({space.expression})</td>
+  </tr>
+</table>
