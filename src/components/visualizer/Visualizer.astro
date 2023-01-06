@@ -1,0 +1,170 @@
+---
+import Stat from "./Stat.astro";
+let ref:number = 1;
+---
+
+<div class="visualizer">
+  <div class="element-selector">
+    <input
+      type="range"
+      min="1"
+      max="80"
+      value="1"
+      class="slider"
+      id="elements"
+    />
+    <p id="elements-quantity">100 elements</p>
+  </div>
+  <div id="alg-window" class="window"></div>
+  <div class="controller">
+    <button id="play">▶️</button>
+
+    <button id="shuffle">🔀</button>
+
+    <button id="sound">🔇</button>
+  </div>
+
+  <div class="stats">
+    <Stat element="Operations" unit="ops." ref={ref++}/>
+    <Stat element="Swaps" unit="ops." ref={ref++}/>
+    <Stat element="Gets" unit="ops."/>
+    <Stat element="Sets" unit="ops."/>
+    <Stat element="Comparisons" unit="comp."/>
+    <Stat element="Real Time" unit="ms"/>
+    <Stat element="Visual Time" unit="sec"/>
+    <Stat element="Ops per ms" unit="ops/ms"/>
+    <Stat element="Comps per ms" unit="comp/ms"/>
+  </div>
+  <div class="info">
+    <p><sup>[1]</sup> Sum of Swap, Get, Set and Comparison operations.</p>
+    <p><sup>[2]</sup> Swap operations do not count as neither Get nor Set operations.</p>
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  .visualizer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    h3 {
+        line-height: 1em;
+        margin: 1em 0 .5em;
+    }
+  }
+
+  .window {
+    width: 500px;
+    height: 500px;
+    border: 0.15rem solid white;
+    border-radius: 0.2em;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    .bar {
+      width: var(--elements);
+      height: var(--height);
+      background-color: white;
+    }
+  }
+
+  .element-selector {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    justify-content: space-between;
+    p {
+      margin: 0;
+      line-height: 1.75em;
+      font-weight: 400;
+    }
+
+    .slider {
+      -webkit-appearance: none; /* Override default CSS styles */
+      appearance: none;
+
+      width: 350px;
+      height: 20px;
+      border-radius: 2.5px;
+      background-color: #000;
+      border: 0.15rem solid white;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 40px; /* Set a specific slider handle width */
+        height: 20px; /* Slider handle height */
+        background: #fff; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+      }
+
+      &::-moz-range-thumb {
+        width: 10px; /* Set a specific slider handle width */
+        height: 20px; /* Slider handle height */
+        background: #04aa6d; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+      }
+    }
+  }
+
+  .controller {
+    display: flex;
+    flex-direction: row;
+    gap:.25em;
+     button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        font-size: 16px;
+
+          border-radius: 0.2em;
+          width: 100%;
+          height: 2em;
+          background-color: #fff;
+          font-weight: 700;
+          outline: none;
+          cursor: pointer;
+          -webkit-transition: all 125ms ease-in-out;
+          -ms-transition: all 125ms ease-in-out;
+          transition: all 125ms ease-in-out;
+          text-decoration: none;
+          border: 0.15rem solid white;
+
+          &:hover {
+            background-color: #bbb;
+          border: 0.15rem solid #bbb;
+
+          }
+
+          &.active {
+            background-color: rgb(255, 255, 255);
+            color: black;
+          }
+        }
+  }
+
+  .stats {
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    line-height: 0;
+    gap: 1em 0;
+    padding: 2em 0 1em;
+  }
+  .info {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    font-size: 12px;
+    sup {
+        font-size: 10px;
+    }
+  }
+
+
+</style>
