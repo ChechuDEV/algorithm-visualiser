@@ -1,0 +1,271 @@
+---
+import Navbar from "../components/navbar/Navbar.astro";
+import NavLink from "../components/navbar/NavLink.astro";
+import BigONotation, {
+  Complexity,
+} from "../components/visualizer/BigONotation.astro";
+import Visualizer from "../components/visualizer/Visualizer.astro";
+
+export interface Props {
+  title: string;
+  best: Complexity;
+  average: Complexity;
+  worst: Complexity;
+  space: Complexity;
+}
+
+const { title, best, average, worst, space } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Algorithm Visualizer</title>
+  </head>
+  <body>
+    <header>
+      <h1>Algorithm visualizer</h1>
+      <h3><a href="https://chechu.dev/?ref=alg-h">by ChechuDEV</a></h3>
+    </header>
+    <div class="content">
+      <Navbar>
+        <NavLink href="/">Home</NavLink>
+        <NavLink href="/selection-sort">Selection Sort</NavLink>
+      </Navbar>
+
+      <Visualizer />
+
+      <div class="description">
+        <div class="explanation">
+          <h3>{title}</h3>
+          <slot />
+        </div>
+
+        <div class="o-notation">
+          <BigONotation
+            worst={worst}
+            best={best}
+            average={average}
+            space={space}
+          />
+        </div>
+
+        <div class="canvas">
+          <a href="https://chechu.dev">
+            <div class="background"></div>
+            <div class="background-a"></div>
+
+            <img
+              width="350"
+              height="300"
+              src="/img/ChechuDEV.png"
+              alt="Chechu DEV"
+            />
+          </a>
+          <!--<canvas id="graph" width="350" height="300"> </canvas>-->
+          <!--<span>Work in progress</span>-->
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        Algorithm Visualizer by <a href="https://chechu.dev/?ref=alg-f"
+          >ChechuDEV</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
+<style lang="scss" is:global>
+  :root {
+    --elements: 5px;
+  }
+
+  @font-face {
+    font-family: "Montserrat";
+    font-weight: 400;
+    src: url("/fonts/Montserrat-Regular.ttf") format("truetype"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+  }
+  @font-face {
+    font-family: "Montserrat";
+    font-weight: 600;
+    src: url("/fonts/Montserrat-Bold.ttf") format("truetype"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+  }
+  html,
+  body {
+    height: 100%;
+    background-color: black;
+    margin: 0;
+    color: white;
+    font-family: "Montserrat";
+  }
+
+  header {
+    width: 100%;
+    background-color: #000;
+    padding: 1em 0em;
+    text-align: center;
+    border-bottom: #fff solid 2px;
+    line-height: 1rem;
+    margin-bottom: 2em;
+  }
+  a {
+    color: white;
+    transition: all 250ms ease-in-out;
+  }
+  a:hover {
+    color: #aaaaaa;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .description {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .o-notation {
+    width: 350px;
+
+    table {
+      border-radius: 0.2em;
+      border-spacing: 0;
+
+      td,
+      th,
+      li {
+        width: 25%;
+        border-bottom: 0.15rem solid white;
+        padding: 0.5em 0.25em;
+        text-align: center;
+        margin: 0;
+      }
+      td,
+      li {
+        &.green {
+          background-color: green;
+        }
+
+        &.orange {
+          background-color: orange;
+        }
+        &.red {
+          background-color: red;
+        }
+      }
+    }
+  }
+
+  canvas {
+    background-color: white;
+    border-radius: 0.2em;
+    width: 360px;
+    height: 300px;
+    background-image: repeating-linear-gradient(
+        #ccc 0 1px,
+        transparent 1px 100%
+      ),
+      repeating-linear-gradient(90deg, #ccc 0 1px, transparent 1px 100%);
+    background-size: 30px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .canvas {
+    position: relative;
+    height: 300px;
+    a{
+        height: 300px;
+    }
+    span {
+      position: absolute;
+      color: #999;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      font-weight: 600;
+      font-size: 40px;
+      text-align: center;
+    }
+
+    a {
+      display: block;
+      border-radius: 0.2em;
+      position: relative;
+
+      &:hover {
+        img {
+          bottom: -2.5px;
+          left: 2.5px;
+        }
+
+        .background {
+          bottom: 2.5px;
+          left: -2.5px;
+        }
+        .background-a {
+          bottom: -7.5px;
+          left: 7.5px;
+        }
+      }
+      .background {
+        position: absolute;
+        border-radius: 0.2em;
+        bottom: 0;
+        left: 0;
+        background-color: #ff9e00;
+        width: 350px;
+        height: 300px;
+        transition: all 250ms ease-in-out;
+      }
+      .background-a {
+        position: absolute;
+        border-radius: 0.2em;
+        bottom: 0;
+        left: 0;
+        background-color: #9d4edd;
+        width: 350px;
+        height: 300px;
+        transition: all 250ms ease-in-out;
+      }
+      img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-radius: 0.2em;
+        box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.2);
+        transition: all 250ms ease-in-out;
+      }
+    }
+  }
+
+  footer {
+    width: 100%;
+    background-color: #000;
+    padding: 1em 0em;
+    text-align: center;
+    border-top: #fff solid 2px;
+    line-height: 1rem;
+    margin-top: 2em;
+  }
+</style>
+<script src="../scripts/Visualizer.ts"></script>
+<script src="../scripts/SoundMaker.ts"></script>
+<script src="../scripts/Shuffle.ts"></script>
+<script src="../scripts/SelectionSort.ts"></script>
+<!--<script src="../scripts/Canvas.ts"></script>-->
