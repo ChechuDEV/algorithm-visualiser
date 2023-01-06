@@ -1,5 +1,6 @@
 ---
-import Layout, { Complexity } from "../layouts/Layout.astro";
+import type { Complexity } from "../components/visualizer/BigONotation.astro";
+import Layout from "../layouts/Layout.astro";
 const best:Complexity = {expression: "n^2", color: "red"};
 const average:Complexity = {expression: "n^2", color: "red"};
 const worst:Complexity = {expression: "n^2", color: "red"};
