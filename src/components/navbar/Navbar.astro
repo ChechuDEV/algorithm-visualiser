@@ -1,0 +1,51 @@
+<nav>
+    <!-- Add links in here, there's no sense in adding them in Layout -->
+  <ul><slot /></ul>
+</nav>
+
+<style lang="scss" is:global>
+  nav {
+    margin: 0;
+    ul {
+    display: flex;
+    gap: .25em;
+    flex-direction: column;
+
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+
+          border-radius: 0.2em;
+          width: 175px;
+          height: 50px;
+          background-color: black;
+          font-weight: 700;
+          outline: none;
+          cursor: pointer;
+          -webkit-transition: all 250ms ease-in-out;
+          -ms-transition: all 250ms ease-in-out;
+          transition: all 250ms ease-in-out;
+          text-decoration: none;
+          color: white;
+          border: 0.15rem solid white;
+
+          &:hover {
+            background-color: rgb(255, 255, 255);
+            color: black;
+          }
+
+          &.active {
+            background-color: rgb(255, 255, 255);
+            color: black;
+          }
+        }
+      }
+    }
+  }
+</style>
