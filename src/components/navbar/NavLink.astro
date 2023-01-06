@@ -1,0 +1,12 @@
+---
+export interface Props {
+    href: string;
+}
+const { href } = Astro.props;
+const active = Astro.url.pathname == href ? "active" : "";
+---
+<li class="nav-link">
+    <a href={href} class={active}>
+        <slot/>
+    </a>
+</li>
