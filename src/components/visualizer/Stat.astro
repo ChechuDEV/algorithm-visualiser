@@ -1,0 +1,54 @@
+---
+export interface Props {
+  element: string;
+  unit: string;
+  ref?: number;
+}
+const { element, unit, ref } = Astro.props;
+const id = element.toLocaleLowerCase().replaceAll(" ", "-");
+---
+
+<div class="stat">
+  <div class="stat-name">
+    <h4>{element.toLocaleUpperCase()}</h4>
+    {ref != undefined && <sup class="ref">[{ref}]</sup>}
+  </div>
+  <div class="mag">
+    <p id={id}>0</p><p class="unit">{unit}</p>
+  </div>
+</div>
+
+<style is:global lang="scss">
+  .stat {
+    flex: 1 0 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    .mag {
+      p {
+        display: inline-block;
+        margin: 0;
+        line-height: 1em;
+        &.unit {
+          font-size: 12px;
+          margin-left: 6px;
+          color: #bbb;
+        }
+      }
+    }
+    .ref {
+      font-size: 10px;
+      line-height: 10px;
+      display: inline-block;
+    }
+    h4 {
+      display: inline-block;
+
+      line-height: 1em;
+      margin: 0;
+    }
+  }
+</style>
