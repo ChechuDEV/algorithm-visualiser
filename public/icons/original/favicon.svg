@@ -43,6 +43,14 @@
      inkscape:label="Capa 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:1.0137;stroke-linecap:round;stroke-linejoin:round"
+       id="rect2"
+       width="270.93332"
+       height="270.93332"
+       x="7.1207683e-06"
+       y="7.1207683e-06"
+       rx="0" />
     <g
        id="g1"
        transform="matrix(0.85918769,0,0,0.85918769,19.437685,19.425852)">
@@ -79,7 +87,7 @@
          y="17.653254"
          rx="6.4378977" />
       <rect
-         style="fill:#ffffff;stroke:#ffffff;stroke-width:2.0216;stroke-linecap:round;stroke-linejoin:round"
+         style="fill:#ffffff;stroke:#ffffff;stroke-width:2.0216;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
          id="rect1-5"
          width="45.391735"
          height="187.63173"
