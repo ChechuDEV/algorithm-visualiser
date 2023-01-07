@@ -1,0 +1,31 @@
+---
+import NavLink from "./NavLink.astro";
+---
+
+<nav>
+  <ul>
+    <NavLink href="/">Home</NavLink>
+    <NavLink href="/about">About</NavLink>
+    <NavLink href="/privacy-policy">Privacy Policy</NavLink>
+  </ul>
+</nav>
+
+<style lang="scss">
+  nav {
+    padding: 1em 0;
+      width: 100%;
+    border-bottom: #fff solid 2px;
+    border-top: #fff solid 2px;
+    margin: 0;
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 1em;
+      
+      margin: 0;
+    }
+  }
+</style>
