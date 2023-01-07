@@ -1,3 +1,5 @@
+import { size } from "./Visualizer";
+
 const soundBtn = document.getElementById("sound")!;
 let state = false;
 
@@ -58,9 +60,9 @@ export function freq(freq: number) {
   }
   wakeUp();
   if (one) {
-    oscillator.frequency.value = freq;
+    oscillator.frequency.value = (freq / size * 1000);
   } else {
-    oscillator2.frequency.value = freq;
+    oscillator2.frequency.value = (freq / size * 1000);
   }
   one = !one;
 }
@@ -74,14 +76,5 @@ export function zeroFreq() {
   oscillator2.frequency.value = 0;
 }
 
-let frequency: number = 0;
-
-export function scheduleFreq(freq: number) {
-    frequency = freq;
-}
-
-export function release() {
-    freq(frequency);
-}
 
 export {};
