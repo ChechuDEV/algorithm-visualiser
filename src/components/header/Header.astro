@@ -1,0 +1,28 @@
+---
+import Navbar from "./navbar/Navbar.astro";
+---
+
+<header>
+  <div class="header">
+    <h1>Algorithm visualizer</h1>
+    <h3><a href="https://chechu.dev/?ref=alg-h">by ChechuDEV</a></h3>
+  </div>
+
+  <Navbar />
+</header>
+
+<style lang="scss">
+  header {
+    width: 100%;
+    .header {
+      padding: 3em 0;
+      text-align: center;
+      h1,
+      h3 {
+        display: block;
+        line-height: 1rem;
+        margin: 1rem;
+      }
+    }
+  }
+</style>
