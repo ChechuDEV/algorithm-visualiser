@@ -1,40 +1,15 @@
 ---
+import Controller from "./Controller.astro";
+import Slider from "./Slider.astro";
 import Stat from "./Stat.astro";
 let ref:number = 1;
 ---
 
 <div class="visualizer">
-  <div class="element-selector">
-    <input
-      type="range"
-      min="1"
-      max="80"
-      value="1"
-      class="slider"
-      id="elements"
-    />
-    <p id="elements-quantity">100 elements</p>
-  </div>
+  <Slider name="element" max={100} min={10} value={10}/>
   <div id="alg-window" class="window"></div>
-  <div class="controller">
-    <button id="play">▶️</button>
-
-    <button id="shuffle">🔀</button>
-
-    <button id="sound">🔇</button>
-  </div>
-  <div class="speed-selector">
-     <input
-      type="range"
-      min="4"
-      max="100"
-      value="10"
-      class="slider"
-      id="speed-slider"
-    />
-    <p id="speed-factor">x1 Speed</p>
-  </div>
-  
+  <Controller/>
+  <Slider name="speed" max={100} min={10} value={4}/>  
 
   <div class="stats">
     <Stat element="Operations" unit="ops." ref={ref++}/>
@@ -65,7 +40,7 @@ let ref:number = 1;
   }
 
   .window {
-    width: min(500px,100%);
+    width: 500px;
     height: 500px;
     border: 0.15rem solid white;
     border-radius: 0.2em;
@@ -81,85 +56,12 @@ let ref:number = 1;
     }
   }
 
-  .element-selector, .speed-selector {
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    justify-content: space-between;
-    p {
-      margin: 0;
-      line-height: 1.75em;
-      font-weight: 400;
-    }
+  
 
-    .slider {
-      -webkit-appearance: none; /* Override default CSS styles */
-      appearance: none;
-
-      width: 350px;
-      height: 20px;
-      border-radius: 2.5px;
-      background-color: #000;
-      border: 0.15rem solid white;
-
-      
-      &::-webkit-slider-thumb {
-        -webkit-appearance: none; /* Override default look */
-        appearance: none;
-        width: 40px; /* Set a specific slider handle width */
-        height: 20px; /* Slider handle height */
-        background: #fff; /* Green background */
-        cursor: pointer; /* Cursor on hover */
-      }
-
-      &::-moz-range-thumb {
-        width: 10px; /* Set a specific slider handle width */
-        height: 20px; /* Slider handle height */
-        background: #04aa6d; /* Green background */
-        cursor: pointer; /* Cursor on hover */
-      }
-    }
-  }
-
-  .controller {
-    display: flex;
-    flex-direction: row;
-    gap:.25em;
-     button {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-        font-size: 16px;
-
-          border-radius: 0.2em;
-          width: 100%;
-          height: 2em;
-          background-color: #fff;
-          font-weight: 700;
-          outline: none;
-          cursor: pointer;
-          -webkit-transition: all 125ms ease-in-out;
-          -ms-transition: all 125ms ease-in-out;
-          transition: all 125ms ease-in-out;
-          text-decoration: none;
-          border: 0.15rem solid white;
-
-          &:hover {
-            background-color: #bbb;
-          border: 0.15rem solid #bbb;
-
-          }
-
-          &.active {
-            background-color: rgb(255, 255, 255);
-            color: black;
-          }
-        }
-  }
+  
 
   .stats {
-    width: min(500px,100%);
+    width: 500px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -169,7 +71,7 @@ let ref:number = 1;
     padding: 2em 0 1em;
   }
   .info {
-    width: min(500px,100%);
+    width: 500px;
     margin-left: auto;
     margin-right: auto;
     text-align: justify;
