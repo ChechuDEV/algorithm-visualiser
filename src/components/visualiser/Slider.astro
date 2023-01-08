@@ -1,0 +1,70 @@
+---
+export interface Props {
+  name: string;
+  min: number;
+  max: number;
+  value: number;
+}
+
+const { name, min, max, value } = Astro.props;
+const sliderId = name + "-slider";
+const textId = name + "-value";
+---
+
+<div>
+  <input type="range" min={min} max={max} value={value} id={sliderId} />
+  <p id={textId}>100 elements</p>
+</div>
+
+<style lang="scss">
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+
+    p {
+      line-height: 1.75em;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    input {
+      -webkit-appearance: none;
+      appearance: none;
+
+      width: 350px;
+      height: 20px;
+      border-radius: 2.5px;
+      background-color: #000;
+      border: 0.15rem solid white;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 40px;
+        height: 20px;
+        background: #fff;
+        cursor: pointer;
+      }
+
+      &::-moz-range-thumb {
+        appearance: none;
+        border-radius: 0;
+        width: 40px;
+        height: 20px;
+        background: #fff;
+        cursor: pointer;
+      }
+
+      &::-ms-thumb {
+        appearance: none;
+        border-radius: 0;
+        width: 40px;
+        height: 20px;
+        background: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+</style>
