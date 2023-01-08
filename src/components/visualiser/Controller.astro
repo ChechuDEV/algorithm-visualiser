@@ -1,0 +1,43 @@
+<div>
+  <button id="play">▶️</button>
+  <button id="shuffle">🔀</button>
+  <button id="sound">🔇</button>
+</div>
+
+<style lang="scss">
+  div {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25em;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      text-decoration: none;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+
+      border: 0.15rem solid white;
+      border-radius: 0.2em;
+      outline: none;
+
+      width: 100%;
+      height: 2em;
+      background-color: #fff;
+
+      cursor: pointer;
+
+      -webkit-transition: all 125ms ease-in-out;
+      -ms-transition: all 125ms ease-in-out;
+      transition: all 125ms ease-in-out;
+
+      &:hover {
+        background-color: #bbb;
+        border: 0.15rem solid #bbb;
+      }
+    }
+  }
+</style>
