@@ -14,8 +14,12 @@ const active = Astro.url.pathname == href ? "active" : "";
 
 <style lang="scss">
   li a {
-    width: max(175px, 100%);
+    width: 175px;
     height: 50px;
+@media (max-width: 764px) {
+        width: 100%;
+    }
+
 
     display: flex;
     justify-content: center;

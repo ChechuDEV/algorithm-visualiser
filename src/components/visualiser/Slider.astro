@@ -13,7 +13,7 @@ const textId = name + "-value";
 
 <div>
   <input type="range" min={min} max={max} value={value} id={sliderId} />
-  <p id={textId}>100 elements</p>
+  <p id={textId}>Loading...</p>
 </div>
 
 <style lang="scss">
@@ -22,6 +22,11 @@ const textId = name + "-value";
     flex-direction: row;
     justify-content: space-between;
     margin: 0;
+    @media (max-width: 764px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
     p {
       line-height: 1.75em;
@@ -34,6 +39,7 @@ const textId = name + "-value";
       appearance: none;
 
       width: 350px;
+      
       height: 20px;
       border-radius: 2.5px;
       background-color: #000;

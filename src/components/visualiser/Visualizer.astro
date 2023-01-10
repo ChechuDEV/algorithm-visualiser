@@ -6,10 +6,10 @@ let ref:number = 1;
 ---
 
 <div class="visualizer">
-  <Slider name="element" max={100} min={10} value={10}/>
+  <Slider name="element" max={80} min={0} value={0}/>
   <div id="alg-window" class="window"></div>
   <Controller/>
-  <Slider name="speed" max={100} min={10} value={4}/>  
+  <Slider name="speed" max={100} min={4} value={10}/>  
 
   <div class="stats">
     <Stat element="Operations" unit="ops." ref={ref++}/>
@@ -28,6 +28,7 @@ let ref:number = 1;
   </div>
 </div>
 
+
 <style lang="scss" is:global>
   .visualizer {
     display: flex;
@@ -41,7 +42,7 @@ let ref:number = 1;
 
   .window {
     width: 500px;
-    height: 500px;
+    aspect-ratio: 1;
     border: 0.15rem solid white;
     border-radius: 0.2em;
     margin: 0;
@@ -49,16 +50,16 @@ let ref:number = 1;
     justify-content: flex-end;
     align-items: flex-end;
 
+    @media (max-width: 764px) {
+        width: 100%;
+    }
+
     .bar {
       width: var(--elements);
       height: var(--height);
       background-color: white;
     }
   }
-
-  
-
-  
 
   .stats {
     width: 500px;
@@ -69,6 +70,9 @@ let ref:number = 1;
     line-height: 0;
     gap: 1em 0;
     padding: 2em 0 1em;
+    @media (max-width: 764px) {
+        width: 100%;
+    }
   }
   .info {
     width: 500px;
@@ -78,6 +82,10 @@ let ref:number = 1;
     font-size: 12px;
     sup {
         font-size: 10px;
+    }
+
+    @media (max-width: 764px) {
+        width: 100%;
     }
   }
 
