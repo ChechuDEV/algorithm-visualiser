@@ -1,18 +1,18 @@
 import { freq, wakeUp, zeroFreq } from "./SoundMaker";
 
 const elementSlider: HTMLInputElement = <HTMLInputElement>(
-  document.getElementById("elements")!
+  document.getElementById("element-slider")!
 );
-const elementsQuantity: HTMLElement =
-  document.getElementById("elements-quantity")!;
+const elementsQuantity: HTMLElement = document.getElementById("element-value")!;
+elementsQuantity.textContent = "100 elements"
 
 const algorithmWindow: HTMLElement = document.getElementById("alg-window")!;
 
 const speedSlider: HTMLInputElement = <HTMLInputElement>(
   document.getElementById("speed-slider")!
 );
-
-const speedDisplay: HTMLElement = document.getElementById("speed-factor")!;
+const speedDisplay: HTMLElement = document.getElementById("speed-value")!;
+speedDisplay.textContent = "x1 Speed"
 
 interface IColors {
   value: number;
@@ -36,13 +36,13 @@ elementSlider.onmouseup = () => {
 speedSlider.oninput = () => {
   let val: number = speedSlider.valueAsNumber;
 
-  let finalVal =  (val / 10)**2;
+  let finalVal = (val / 10) ** 2;
 
-  speedDisplay.innerHTML = `x${finalVal.toFixed(2).replace(/.0{0,2}$/, "")} Speed`;
+  speedDisplay.innerHTML = `x${finalVal
+    .toFixed(2)
+    .replace(/.0{0,2}$/, "")} Speed`;
 
-  minTimes = Math.trunc(size * finalVal / 100) ;
-
-
+  minTimes = Math.trunc((size * finalVal) / 100);
 };
 
 elementSlider.oninput = async () => {
@@ -55,12 +55,13 @@ elementSlider.oninput = async () => {
   elementsQuantity.innerHTML = bigVal + " elements";
 
   algorithmWindow.style.setProperty("--elements", px + "px");
-
+if(( window.innerWidth <= 800 ) ||  ( window.innerHeight <= 600 )){
   if (bigVal > 500) {
     elementsQuantity.style.color = "red";
+    elementsQuantity.textContent += " (MIGHT BE LAGGY)"
   } else {
     elementsQuantity.style.color = "white";
-  }
+  }}
   size = bigVal;
   colors = new Array(size).fill({ value: 0, action: "set" });
   await init();
@@ -90,7 +91,6 @@ let times = 0;
 let startTime = 0;
 
 let minTimes = Math.trunc(size / 100);
-
 
 export async function reload() {
   if (times != 0) {
