@@ -6,6 +6,16 @@ const { title } = Astro.props;
 ---
 
 <head>
+<!-- Google tag (gtag.js) -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-EGVQVT5SWL"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EGVQVT5SWL');
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
 
