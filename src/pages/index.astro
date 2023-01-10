@@ -1,10 +1,56 @@
 ---
-import type { Complexity } from "../components/visualiser/description/BigONotation.astro";
-import Layout from "../layouts/Layout.astro";
-const abc:Complexity = {expression: "",color:""}
+import Footer from "../components/Footer.astro";
+import Head from "../components/header/Head.astro";
+import Header from "../components/header/Header.astro";
 ---
 
-<Layout title="Algorithm Visualizer" best={abc} worst={abc} average={abc} space={abc}>
-	This algorithm visualizer is made by me, ChechuDEV.<br>
-    It unfortunately runs with Javascript, which is kind of slow, so exceding 500 elements is not worth. 
-</Layout>
+<!DOCTYPE html>
+<html lang="en">
+  <Head title="Home" />
+  <body>
+    <Header />
+    <div class="content">
+ <h1>Welcome!</h1>
+    <p>
+      Welcome to Chechu’s sorting visualiser! Here, you can see how different
+      sorting algorithms work on a variety of customisable data sets, all in
+      real-time. I’ve optimised my visualiser to run smoothly on all devices,
+      and I’ve added a speed slider and an element selector to allow you to
+      customise your experience. Plus, I’ve added a unique satisfying touch by
+      incorporating sound, in the form of a frequency for each value.
+    </p>
+    <p>
+      Whether you’re just curious, a beginner looking to understand the basics
+      of sorting, or a more advanced user looking to compare the performance of
+      different algorithms, my visualiser has something to offer you.
+    </p>
+    <p>
+      My visualiser will be including a range of popular sorting algorithms soon
+      in time, while for the moment there is only selection sort and insertion
+      sort, there’s no limit other than imagination to which algorithms to include: Bubble sort, merge sort, quick sort, radix sort… All of them and more
+      are going to get into this website soon!
+    </p>
+    <p>
+      You can select the algorithm you want to see in action, choose how many
+      elements you want to sort, shuffle it, and there you go! As the algorithm
+      works, you’ll see the data being sorted in real time, making it easy to
+      understand the steps involved.
+    </p>
+    <p>I hope you enjoy using my sorting algorithm visualiser.</p>
+    </div>
+   
+    <Footer />
+  </body>
+</html>
+<style lang="scss">
+    .content {
+        width: 750px;
+        text-align: justify;
+        line-height: 1.5em;
+
+       @media (max-width: 764px) {
+        width: 95%;
+
+    }
+    }
+</style>
