@@ -26,7 +26,7 @@
   <meta name="generator" content="Astro v1.9.1">
   <title>Privacy policy - Algorithm Visualiser</title>
 <link rel="stylesheet" href="/assets/privacy-policy.1a3c6750.css" />
-<link rel="stylesheet" href="/assets/insertion-sort.a3752f9d.css" /><script type="module" src="/hoisted.3690ef7a.js"></script></head>
+<link rel="stylesheet" href="/assets/insertion-sort.e2ece078.css" /><script type="module" src="/hoisted.3690ef7a.js"></script></head>
 
 
 
@@ -57,7 +57,7 @@
 
 
     <link rel="stylesheet" href="/assets/privacy-policy.1a3c6750.css" />
-<link rel="stylesheet" href="/assets/insertion-sort.a3752f9d.css" /><script type="module" src="/hoisted.3690ef7a.js"></script><section class="content astro-MOCVXESS">
+<link rel="stylesheet" href="/assets/insertion-sort.e2ece078.css" /><script type="module" src="/hoisted.3690ef7a.js"></script><section class="content astro-MOCVXESS">
 <h2 class="astro-MOCVXESS">Cookies & Privacy policy</h2>
 
 				<div class="astro-MOCVXESS">
@@ -396,10 +396,14 @@
     const additional = document.getElementById("additional");
     
 
-    discoverButton.onclick = () => {
+    if(discoverButton != null || discoverButton != undefined) {
+         discoverButton.onclick = () => {
         additional.classList.remove("hidden");
         discoverButton.remove();
     }
+    }
+
+   
 </script>
 
 </body></html>
