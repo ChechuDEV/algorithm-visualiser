@@ -1,11 +1,15 @@
-import { zeroFreq } from "./SoundMaker";
 import { endTiming, flush, get, isLesser, reload, size, startSort, startTiming, swap } from "./Visualizer";
 
 const playBtn = document.getElementById("play")!;
-
+let running = false;
 playBtn.onclick = async ()=> {
-    await startSort();
-    await selectionSort();
+    if(running) {
+        return;
+    }
+    running = true;
+  await startSort();
+  await selectionSort();
+  running = false;
 }
 
 export async function selectionSort() {
