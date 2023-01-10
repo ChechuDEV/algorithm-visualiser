@@ -1,14 +1,14 @@
 ---
 import type { Complexity } from "../components/visualiser/description/BigONotation.astro";
-import Layout from "../layouts/Layout.astro";
+import Algorithm from "../layouts/Algorithm.astro";
 const best:Complexity = {expression: "n^2", color: "red"};
 const average:Complexity = {expression: "n^2", color: "red"};
 const worst:Complexity = {expression: "n^2", color: "red"};
 const space:Complexity = {expression: "1", color: "green"};
 ---
 
-<Layout title="Selection Sort" best={best} average={average} worst={worst} space={space}>
+<Algorithm title="Selection Sort" best={best} average={average} worst={worst} space={space}>
 	Selection sort iterates through the whole array in order to find the smallest following element.
-</Layout>
+</Algorithm>
 
 <script src="../scripts/SelectionSort.ts"></script>
