@@ -1,5 +1,5 @@
-# build output
-dist/
+# build output (Removed dist since I need it for the hosting service)
+# dist/
 .output/
 
 #vscode
