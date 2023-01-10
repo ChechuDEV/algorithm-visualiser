@@ -1,12 +1,10 @@
 ---
-import Header from "../components/header/Header.astro";
 import SortNav from "../components/visualiser/sortnav/SortNav.astro";
-import SortNavLink from "../components/visualiser/sortnav/SortNavLink.astro";
 import BigONotation, {
   Complexity,
 } from "../components/visualiser/description/BigONotation.astro";
 import Visualizer from "../components/visualiser/Visualizer.astro";
-import Head from "../components/header/Head.astro";
+import Layout from "./Layout.astro";
 
 export interface Props {
   title: string;
@@ -19,63 +17,57 @@ export interface Props {
 const { title, best, average, worst, space } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <Head title={title}/>
-  <body>
-    <Header/>
-    <div class="content">
-      <SortNav>
-        <SortNavLink href="/">Home</SortNavLink>
-      </SortNav>
+<Layout title={title}>
+    <section class="container">
 
-      <Visualizer />
+  <SortNav />
+  <Visualizer />
 
-      <div class="description">
-        <div class="explanation">
-          <h3>{title}</h3>
-          <slot />
-        </div>
-
-        <div class="o-notation">
-          <BigONotation
-            worst={worst}
-            best={best}
-            average={average}
-            space={space}
-          />
-          <p>Big O Notation defines the lower, average and upper bounds of an algorithm, where Time complexity determines the amount of operations, and Space complexity the amount of memory that can be used</p>
-        </div>
-
-        <div class="canvas">
-          <a href="https://chechu.dev">
-            <div class="background"></div>
-            <div class="background-a"></div>
-
-            <img
-              width="350"
-              height="300"
-              src="/img/ChechuDEV.png"
-              alt="Chechu DEV"
-            />
-          </a>
-          <!--<canvas id="graph" width="350" height="300"> </canvas>-->
-          <!--<span>Work in progress</span>-->
-        </div>
-      </div>
+  <div class="description">
+    <div class="explanation">
+      <h3>{title}</h3>
+      <slot />
     </div>
 
-    
-  </body>
-</html>
-<style lang="scss" is:global>
-  :root {
-    --elements: 5px;
+    <a aria-disabled="true" class="btn">Code coming soon</a>
+    <div class="onotation">
+      <BigONotation worst={worst} best={best} average={average} space={space} />
+      <p>
+        Big O Notation defines the lower, average and upper bounds of an
+        algorithm, where Time complexity determines the amount of operations,
+        and Space complexity the amount of memory that can be used
+      </p>
+    </div>
+
+    <div class="canvas">
+      <a href="https://chechu.dev">
+        <div class="background"></div>
+        <div class="background-a"></div>
+
+        <img
+          width="350"
+          height="300"
+          src="/img/ChechuDEV.png"
+          alt="Chechu DEV"
+        />
+      </a>
+      <!--<canvas id="graph" width="350" height="300"> </canvas>-->
+      <!--<span>Work in progress</span>-->
+    </div>
+  </div>
+    </section>
+
+</Layout>
+
+<style lang="scss" is:inline>
+  .description {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
- 
-
-  .content {
+   .container {
     display: flex;
     justify-content: center;
     gap: 25px;
@@ -91,17 +83,9 @@ const { title, best, average, worst, space } = Astro.props;
     }
   }
 
-  .description {
+  .onotation {
     width: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
-
-   .o-notation {
-    width: 350px;
-}
-
   canvas {
     background-color: white;
     border-radius: 0.2em;
@@ -121,8 +105,8 @@ const { title, best, average, worst, space } = Astro.props;
   .canvas {
     position: relative;
     height: 300px;
-    a{
-        height: 300px;
+    a {
+      height: 300px;
     }
     span {
       position: absolute;
@@ -187,9 +171,42 @@ const { title, best, average, worst, space } = Astro.props;
     }
   }
 
- 
+  .btn {
+    width: 100%;
+
+    height: 40px;
+    margin-bottom: 1em;
+    @media (max-width: 764px) {
+      width: 100%;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    color: black;
+    cursor: not-allowed;
+
+    border: 0.15rem solid white;
+    border-radius: 0.2em;
+    outline: none;
+
+    background-color: white;
+
+    transition: all 250ms ease-in-out;
+    -ms-transition: all 250ms ease-in-out;
+    -webkit-transition: all 250ms ease-in-out;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #discover {
+    display: block;
+    margin-bottom: 1em;
+  }
 </style>
-<script src="../scripts/Visualizer.ts"></script>
-<script src="../scripts/SoundMaker.ts"></script>
-<script src="../scripts/Shuffle.ts"></script>
-<!--<script src="../scripts/Canvas.ts"></script>-->
