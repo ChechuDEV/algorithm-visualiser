@@ -2,17 +2,46 @@
   <p>
     Algorithm Visualizer by <a href="https://chechu.dev/?ref=alg-f">ChechuDEV</a
     >
+
   </p>
+   <div>
+    <a href="/privacy-policy">Privacy policy</a>
+    <a href="/terms-of-service">Terms of service</a>
+    <a href="/sitemap-index.xml">sitemap.xml</a>
+    </div> 
+    <div>
+         <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new?assignees=&labels=&template=bug_report.md&title=">Report a bug</a>
+    <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new?assignees=&labels=&template=feature_request.md&title=">Request a feature</a>
+    <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new/choose">Other issues?</a>
+    </div>
+
+
 </footer>
 
-<style>
+<style lang="scss">
   footer {
     width: 100%;
     background-color: #000;
-    padding: 1em 0em;
+    padding: 2em 0em;
     text-align: center;
     border-top: #fff solid 2px;
     line-height: 1rem;
     margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:1em;
+    div {
+        display: flex;
+        justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 1em;
+     @media (max-width: 764px) {
+           flex-direction: column;
+    }
+    }
   }
 </style>
