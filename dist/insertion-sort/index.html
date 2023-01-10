@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EGVQVT5SWL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EGVQVT5SWL');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#fff">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta name="generator" content="Astro v1.9.1">
+  <title>Insertion Sort - Algorithm Visualiser</title>
+<link rel="stylesheet" href="/assets/insertion-sort.1ea2cd61.css" />
+<link rel="stylesheet" href="/assets/insertion-sort.da4f27b7.css" /><script type="module" src="/hoisted.b1351d28.js"></script></head>
+
+
+
+  <body>
+    <header class="astro-OE34GKHH">
+  <div class="header astro-OE34GKHH">
+    <h1 class="astro-OE34GKHH">Algorithm visualiser</h1>
+    <h3 class="astro-OE34GKHH"><a href="https://chechu.dev/?ref=alg-h" class="astro-OE34GKHH">by ChechuDEV</a></h3>
+  </div>
+
+  <nav class="astro-7MU4KHN3">
+  <ul class="astro-7MU4KHN3">
+    <li class="nav-link">
+    <a href="/" class="">
+        Home
+    </a>
+</li>
+    <li class="nav-link">
+    <a href="/selection-sort" class="">
+        Visualiser
+    </a>
+</li>
+  </ul>
+</nav>
+
+
+</header>
+
+
+    <section class="container">
+
+  <nav class="astro-5X6TPOFR">
+    <ul class="astro-5X6TPOFR">
+        <li class="astro-XG2GFLXA">
+  <a href="/selection-sort" class=" astro-XG2GFLXA">
+    Selection Sort
+  </a>
+</li>
+
+
+        <li class="astro-XG2GFLXA">
+  <a href="/insertion-sort" class=" astro-XG2GFLXA">
+    Insertion Sort
+  </a>
+</li>
+
+
+    </ul>
+</nav>
+  <div class="visualizer">
+  <div class="astro-WY4PWO2F">
+  <input type="range" min="0" max="80" value="0" id="element-slider" class="astro-WY4PWO2F">
+  <p id="element-value" class="astro-WY4PWO2F">Loading...</p>
+</div>
+
+
+  <div id="alg-window" class="window"></div>
+  <div class="astro-EJNDKLFX">
+  <button id="play" class="astro-EJNDKLFX">▶️</button>
+  <button id="shuffle" class="astro-EJNDKLFX">🔀</button>
+  <button id="sound" class="astro-EJNDKLFX">🔇</button>
+</div>
+
+
+  <div class="astro-WY4PWO2F">
+  <input type="range" min="4" max="100" value="10" id="speed-slider" class="astro-WY4PWO2F">
+  <p id="speed-value" class="astro-WY4PWO2F">Loading...</p>
+</div>
+
+  
+
+  <div class="stats">
+    <div class="stat">
+  <div class="stat-name">
+    <h4>OPERATIONS</h4>
+    <sup class="ref">[1]</sup>
+  </div>
+  <div class="mag">
+    <p id="operations">0</p><p class="unit">ops.</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>SWAPS</h4>
+    <sup class="ref">[2]</sup>
+  </div>
+  <div class="mag">
+    <p id="swaps">0</p><p class="unit">ops.</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>GETS</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="gets">0</p><p class="unit">ops.</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>SETS</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="sets">0</p><p class="unit">ops.</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>COMPARISONS</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="comparisons">0</p><p class="unit">comp.</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>REAL TIME</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="real-time">0</p><p class="unit">ms</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>VISUAL TIME</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="visual-time">0</p><p class="unit">sec</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>OPS PER MS</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="ops-per-ms">0</p><p class="unit">ops/ms</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>COMPS PER MS</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="comps-per-ms">0</p><p class="unit">comp/ms</p>
+  </div>
+</div>
+
+
+  </div>
+  <div class="info">
+    <p><sup>[1]</sup> Sum of Swap, Get, Set and Comparison operations.</p>
+    <p><sup>[2]</sup> Swap operations do not count as neither Get nor Set operations.</p>
+  </div>
+</div>
+
+
+
+
+  <div class="description">
+    <div class="explanation">
+      <h3>Insertion Sort</h3>
+      <link rel="stylesheet" href="/assets/insertion-sort.1ea2cd61.css" />
+<link rel="stylesheet" href="/assets/insertion-sort.da4f27b7.css" /><script type="module" src="/hoisted.b1351d28.js"></script><p>
+    Insertion sort is a simple sorting algorithm that organizes elements in an
+    array by repeatedly shifting elements to the right until the correct
+    position for the current element is found. For each element, it compares it with
+    the elements in the sorted sublist and shifts elements that are greater than
+    the current element to the right until the correct position for the current
+    element is found.
+  </p><a id="discover" href="#">Read more</a><p id="additional" class="hidden">
+    Insertion sort has a time complexity of O(n²) on average, but it has a
+    better performance on small data sets and on lists that are already
+    partially sorted. Because of this characteristic, insertion sort is often
+    used as a simple sorting algorithm in embedded systems and other
+    resource-constrained environments. It's also a good choice for educational
+    purposes and simple cases.
+  </p>
+    </div>
+
+    <a aria-disabled="true" class="btn">Code coming soon</a>
+    <div class="onotation">
+      <table class="astro-46MOVBKQ">
+  <tr class="astro-46MOVBKQ">
+    <th colspan="4" class="astro-46MOVBKQ">Big O Notation</th>
+  </tr>
+  <tr class="astro-46MOVBKQ">
+    <td colspan="3" class="astro-46MOVBKQ">Time complexity</td>
+    <td class="astro-46MOVBKQ">Space complexity</td>
+  </tr>
+  <tr class="astro-46MOVBKQ">
+    <td class="astro-46MOVBKQ">Worst</td>
+    <td class="astro-46MOVBKQ">Average</td>
+    <td class="astro-46MOVBKQ">Best</td>
+    <td class="astro-46MOVBKQ">Worst</td>
+  </tr>
+  <tr class="astro-46MOVBKQ">
+    <td class="red astro-46MOVBKQ">O(n^2)</td>
+    <td class="red astro-46MOVBKQ">Θ(n^2)</td>
+    <td class="orange astro-46MOVBKQ">Ω(n)</td>
+    <td class="green astro-46MOVBKQ">O(1)</td>
+  </tr>
+
+
+</table>
+      <p>
+        Big O Notation defines the lower, average and upper bounds of an
+        algorithm, where Time complexity determines the amount of operations,
+        and Space complexity the amount of memory that can be used
+      </p>
+    </div>
+
+    <div class="canvas">
+      <a href="https://chechu.dev">
+        <div class="background"></div>
+        <div class="background-a"></div>
+
+        <img width="350" height="300" src="/img/ChechuDEV.png" alt="Chechu DEV">
+      </a>
+      <!--<canvas id="graph" width="350" height="300"> </canvas>-->
+      <!--<span>Work in progress</span>-->
+    </div>
+  </div>
+    </section>
+
+     <footer class="astro-VJXYXQ73">
+  <p class="astro-VJXYXQ73">
+    Algorithm Visualizer by <a href="https://chechu.dev/?ref=alg-f" class="astro-VJXYXQ73">ChechuDEV</a>
+
+  </p>
+   <div class="astro-VJXYXQ73">
+    <a href="/privacy-policy" class="astro-VJXYXQ73">Privacy policy</a>
+    <a href="/terms-of-service" class="astro-VJXYXQ73">Terms of service</a>
+    <a href="/sitemap.xml" class="astro-VJXYXQ73">sitemap.xml</a>
+    </div> 
+    <div class="astro-VJXYXQ73">
+         <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new?assignees=&labels=&template=bug_report.md&title=" class="astro-VJXYXQ73">Report a bug</a>
+    <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new?assignees=&labels=&template=feature_request.md&title=" class="astro-VJXYXQ73">Request a feature</a>
+    <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new/choose" class="astro-VJXYXQ73">Other issues?</a>
+    </div>
+
+
+</footer>
+
+
+  
+
+
+
+<!--<script src="../scripts/Canvas.ts"></script>-->
+
+<script>
+    const discoverButton = document.getElementById("discover");
+    const additional = document.getElementById("additional");
+    
+
+    discoverButton.onclick = () => {
+        additional.classList.remove("hidden");
+        discoverButton.remove();
+    }
+</script>
+
+</body></html>
+
+<style lang="scss">
+  .description {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+   .container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-left: auto;
+    margin-right: auto;
+        flex-direction: row;
+    width: auto;
+
+    @media (max-width: 720px) {
+
+    flex-direction: column;
+        width: 90%;
+    }
+  }
+
+  .onotation {
+    width: 350px;
+  }
+  canvas {
+    background-color: white;
+    border-radius: 0.2em;
+    width: 360px;
+    height: 300px;
+    background-image: repeating-linear-gradient(
+        #ccc 0 1px,
+        transparent 1px 100%
+      ),
+      repeating-linear-gradient(90deg, #ccc 0 1px, transparent 1px 100%);
+    background-size: 30px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .canvas {
+    position: relative;
+    height: 300px;
+    a {
+      height: 300px;
+    }
+    span {
+      position: absolute;
+      color: #999;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      font-weight: 600;
+      font-size: 40px;
+      text-align: center;
+    }
+
+    a {
+      display: block;
+      border-radius: 0.2em;
+      position: relative;
+
+      &:hover {
+        img {
+          bottom: -2.5px;
+          left: 2.5px;
+        }
+
+        .background {
+          bottom: 2.5px;
+          left: -2.5px;
+        }
+        .background-a {
+          bottom: -7.5px;
+          left: 7.5px;
+        }
+      }
+      .background {
+        position: absolute;
+        border-radius: 0.2em;
+        bottom: 0;
+        left: 0;
+        background-color: #ff9e00;
+        width: 350px;
+        height: 300px;
+        transition: all 250ms ease-in-out;
+      }
+      .background-a {
+        position: absolute;
+        border-radius: 0.2em;
+        bottom: 0;
+        left: 0;
+        background-color: #9d4edd;
+        width: 350px;
+        height: 300px;
+        transition: all 250ms ease-in-out;
+      }
+      img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-radius: 0.2em;
+        box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.2);
+        transition: all 250ms ease-in-out;
+      }
+    }
+  }
+
+  .btn {
+    width: 100%;
+
+    height: 40px;
+    margin-bottom: 1em;
+    @media (max-width: 764px) {
+      width: 100%;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    color: black;
+    cursor: not-allowed;
+
+    border: 0.15rem solid white;
+    border-radius: 0.2em;
+    outline: none;
+
+    background-color: white;
+
+    transition: all 250ms ease-in-out;
+    -ms-transition: all 250ms ease-in-out;
+    -webkit-transition: all 250ms ease-in-out;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #discover {
+    display: block;
+    margin-bottom: 1em;
+  }
+</style>
+
