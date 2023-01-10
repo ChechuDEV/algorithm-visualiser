@@ -41,13 +41,17 @@ const { title } = Astro.props;
     const additional = document.getElementById("additional");
     
 
-    discoverButton.onclick = () => {
+    if(discoverButton != null || discoverButton != undefined) {
+         discoverButton.onclick = () => {
         additional.classList.remove("hidden");
         discoverButton.remove();
     }
+    }
+
+   
 </script>
 
-<style is:global>
+<style is:global lang="scss">
      .content {
         width: 750px;
         text-align: justify;

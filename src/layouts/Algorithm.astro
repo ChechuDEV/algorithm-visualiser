@@ -18,73 +18,81 @@ const { title, best, average, worst, space } = Astro.props;
 ---
 
 <Layout title={title}>
-    <section class="container">
+  <section class="container">
+    <SortNav />
+    <Visualizer />
 
-  <SortNav />
-  <Visualizer />
+    <div class="description">
+      <div class="explanation">
+        <h3>{title}</h3>
+        <slot />
+      </div>
 
-  <div class="description">
-    <div class="explanation">
-      <h3>{title}</h3>
-      <slot />
-    </div>
-
-    <a aria-disabled="true" class="btn">Code coming soon</a>
-    <div class="onotation">
-      <BigONotation worst={worst} best={best} average={average} space={space} />
-      <p>
-        Big O Notation defines the lower, average and upper bounds of an
-        algorithm, where Time complexity determines the amount of operations,
-        and Space complexity the amount of memory that can be used
-      </p>
-    </div>
-
-    <div class="canvas">
-      <a href="https://chechu.dev">
-        <div class="background"></div>
-        <div class="background-a"></div>
-
-        <img
-          width="350"
-          height="300"
-          src="/img/ChechuDEV.png"
-          alt="Chechu DEV"
+      <a aria-disabled="true" class="btn">Code coming soon</a>
+      <div class="onotation">
+        <BigONotation
+          worst={worst}
+          best={best}
+          average={average}
+          space={space}
         />
-      </a>
-      <!--<canvas id="graph" width="350" height="300"> </canvas>-->
-      <!--<span>Work in progress</span>-->
-    </div>
-  </div>
-    </section>
+        <p>
+          Big O Notation defines the lower, average and upper bounds of an
+          algorithm, where Time complexity determines the amount of operations,
+          and Space complexity the amount of memory that can be used
+        </p>
+      </div>
 
+      <div class="canvas">
+        <a href="https://chechu.dev">
+          <div class="background"></div>
+          <div class="background-a"></div>
+
+          <img
+            width="350"
+            height="300"
+            src="/img/ChechuDEV.png"
+            alt="Chechu DEV"
+          />
+        </a>
+        <!--<canvas id="graph" width="350" height="300"> </canvas>-->
+        <!--<span>Work in progress</span>-->
+      </div>
+    </div>
+  </section>
 </Layout>
 
-<style lang="scss" is:inline>
+<style lang="scss">
   .description {
     width: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media (max-width: 720px) {
+      width: 100%;
+    }
   }
 
-   .container {
+  .container {
     display: flex;
     justify-content: center;
     gap: 25px;
     margin-left: auto;
     margin-right: auto;
-        flex-direction: row;
+    flex-direction: row;
     width: auto;
 
     @media (max-width: 720px) {
-
-    flex-direction: column;
-        width: 90%;
+      flex-direction: column;
+      width: 90%;
     }
   }
 
   .onotation {
     width: 350px;
+     @media (max-width: 720px) {
+      width: 100%;
+    }
   }
   canvas {
     background-color: white;
@@ -105,9 +113,7 @@ const { title, best, average, worst, space } = Astro.props;
   .canvas {
     position: relative;
     height: 300px;
-    a {
-      height: 300px;
-    }
+   
     span {
       position: absolute;
       color: #999;
@@ -121,10 +127,18 @@ const { title, best, average, worst, space } = Astro.props;
     }
 
     a {
+        margin-right: auto;
+        margin-left: auto;
+         width: 350px;
+         height: 300px;
       display: block;
       border-radius: 0.2em;
       position: relative;
 
+@media (max-width: 400px) {
+    width: 175px;
+    height: 150px;
+}      
       &:hover {
         img {
           bottom: -2.5px;
@@ -149,6 +163,11 @@ const { title, best, average, worst, space } = Astro.props;
         width: 350px;
         height: 300px;
         transition: all 250ms ease-in-out;
+        
+@media (max-width: 400px) {
+    width: 175px;
+    height: 150px;
+}      
       }
       .background-a {
         position: absolute;
@@ -159,6 +178,11 @@ const { title, best, average, worst, space } = Astro.props;
         width: 350px;
         height: 300px;
         transition: all 250ms ease-in-out;
+        
+@media (max-width: 400px) {
+    width: 175px;
+    height: 150px;
+}      
       }
       img {
         position: absolute;
@@ -167,6 +191,13 @@ const { title, best, average, worst, space } = Astro.props;
         border-radius: 0.2em;
         box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.2);
         transition: all 250ms ease-in-out;
+
+        object-fit: cover;
+
+@media (max-width: 400px) {
+    width: 175px;
+    height: 150px;
+}        
       }
     }
   }

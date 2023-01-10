@@ -36,31 +36,33 @@ const { best, average, worst, space } = Astro.props;
 </table>
 
 <style lang="scss">
-table {
-      border-radius: 0.2em;
-      border-spacing: 0;
+  table {
+    border-radius: 0.2em;
+    border-spacing: 0;
 
-      td,
-      th,
-      li {
-        width: 25%;
-        border-bottom: 0.15rem solid white;
-        padding: 0.5em 0.25em;
-        text-align: center;
-        margin: 0;
+    td,
+    th,
+    li {
+      width: 25%;
+      border-bottom: 0.15rem solid white;
+      padding: 0.5em 0.25em;
+      text-align: center;
+      margin: 0;
+    }
+    td,
+    li {
+      &.green {
+        background-color: green;
       }
-      td,
-      li {
-        &.green {
-          background-color: green;
-        }
 
-        &.orange {
-          background-color: orange;
-        }
-        &.red {
-          background-color: red;
-        }
+      &.orange {
+        background-color: orange;
+      }
+      &.red {
+        background-color: red;
       }
     }
+
+   
+  }
 </style>
