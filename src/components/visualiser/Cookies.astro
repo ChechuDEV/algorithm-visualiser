@@ -84,10 +84,10 @@ animation: cookies-disappear 500ms ease-in-out forwards;
 </style>
 
 
-<script>
+<script is:inline>
 
-    const consent = document.getElementById("consent")!;
-    const continueBtn = document.getElementById("continue")!;
+    const consent = document.getElementById("consent");
+    const continueBtn = document.getElementById("continue");
 
 continueBtn.onclick = () => {
 	consent.classList.add("policy-disappear");
