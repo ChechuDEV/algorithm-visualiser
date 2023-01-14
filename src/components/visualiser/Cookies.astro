@@ -1,0 +1,104 @@
+<div id="consent">
+  <h2>Cookies & Privacy</h2>
+  <p>This site uses cookies to ensure you the best experiences of all.</p><p>
+    By continuing, I must assume you're okay with them, however, <a
+      href="/privacy-policy">you can read more about them here.</a
+    >
+  </p>
+  <a id="continue" class="btn">Continue</a>
+</div>
+
+<style lang="scss">
+  div {
+    position: fixed;
+    bottom: 1em;
+    width: 400px;
+    right: 1em;
+    box-sizing: border-box;
+    padding: 1em;
+    background-color: black;
+    border: 0.125rem white solid;
+    border-radius: 0.25em;
+
+    @media (max-width: 756px) {
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        border: 0;
+        border-radius: 0;
+        border-top: 0.125rem white solid;
+    }
+    h2 {
+      line-height: 0;
+    }
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      text-decoration: none;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+color: black;
+      border: 0.15rem solid white;
+      border-radius: 0.2em;
+      outline: none;
+
+      width: 100%;
+      height: 2em;
+      background-color: #fff;
+
+      cursor: pointer;
+
+      -webkit-transition: all 125ms ease-in-out;
+      -ms-transition: all 125ms ease-in-out;
+      transition: all 125ms ease-in-out;
+
+      &:hover {
+        background-color: #bbb;
+        border: 0.15rem solid #bbb;
+      }
+    }
+    p {
+      a {
+        color: rgb(156, 156, 255);
+      }
+    }
+    
+  }
+</style>
+
+<style is:inline>
+    .policy-disappear {
+animation: cookies-disappear 500ms ease-in-out forwards;
+    }
+
+    @keyframes cookies-disappear {
+	100% {
+		bottom: -500px;
+	}
+}
+
+</style>
+
+
+<script>
+
+    const consent = document.getElementById("consent")!;
+    const continueBtn = document.getElementById("continue")!;
+
+continueBtn.onclick = () => {
+	consent.classList.add("policy-disappear");
+	setTimeout(() => {
+		consent.remove();
+	}, 1000);
+	window.localStorage.setItem("hide-consent", "14JAN");
+};
+
+if (window.localStorage.getItem("hide-consent") == "14JAN") {
+	consent.remove();
+}
+
+</script>
