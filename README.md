@@ -1,4 +1,4 @@
-# Welcome to [Sorting Algorithm Visualiser](https://chechu.dev)
+# Welcome to [Sorting Algorithm Visualiser](https://algorithms.chechu.dev)
 
 ## 🧞 Looking to build this project at home?
 
