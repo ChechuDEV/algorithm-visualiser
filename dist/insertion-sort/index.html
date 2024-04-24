@@ -25,20 +25,20 @@
 
   <meta name="generator" content="Astro v1.9.1">
   <title>Insertion Sort - Algorithm Visualiser</title>
-<link rel="stylesheet" href="/assets/insertion-sort.bf2f8602.css" />
-<link rel="stylesheet" href="/assets/insertion-sort.2cb289d0.css" /><script type="module" src="/hoisted.b1351d28.js"></script></head>
+<link rel="stylesheet" href="/assets/bubble-sort.426410ba.css" />
+<link rel="stylesheet" href="/assets/bubble-sort.14980c2b.css" /><script type="module" src="/hoisted.79d22dea.js"></script></head>
 
 
 
   <body>
-    <header class="astro-OE34GKHH">
-  <div class="header astro-OE34GKHH">
-    <h1 class="astro-OE34GKHH">Algorithm visualiser</h1>
-    <h3 class="astro-OE34GKHH"><a href="https://chechu.dev/?ref=alg-h" class="astro-OE34GKHH">by ChechuDEV</a></h3>
+    <header class="astro-24QJATBP">
+  <div class="header astro-24QJATBP">
+    <h1 class="astro-24QJATBP">Algorithm visualiser</h1>
+    <h3 class="astro-24QJATBP"><a href="https://chechu.dev/?ref=alg-h" class="astro-24QJATBP">by ChechuDEV</a></h3>
   </div>
 
-  <nav class="astro-7MU4KHN3">
-  <ul class="astro-7MU4KHN3">
+  <nav class="astro-YG2MDAW7">
+  <ul class="astro-YG2MDAW7">
     <li class="nav-link">
     <a href="/" class="">
         Home
@@ -56,19 +56,40 @@
 </header>
 
 
-    <section class="container astro-KCMOB562">
-    <nav class="astro-5X6TPOFR">
-    <ul class="astro-5X6TPOFR">
-        <li class="astro-XG2GFLXA">
-  <a href="/selection-sort" class=" astro-XG2GFLXA">
+    <section class="container astro-AN6OOZF6">
+    <nav class="astro-3LZN3HNM">
+    <ul class="astro-3LZN3HNM">
+        <li class="astro-JY7BTWSF">
+  <a href="/selection-sort" class=" astro-JY7BTWSF">
     Selection Sort
   </a>
 </li>
 
 
-        <li class="astro-XG2GFLXA">
-  <a href="/insertion-sort" class=" astro-XG2GFLXA">
+        <li class="astro-JY7BTWSF">
+  <a href="/insertion-sort" class=" astro-JY7BTWSF">
     Insertion Sort
+  </a>
+</li>
+
+
+        <li class="astro-JY7BTWSF">
+  <a href="/bubble-sort" class=" astro-JY7BTWSF">
+    Bubble Sort
+  </a>
+</li>
+
+
+        <li class="astro-JY7BTWSF">
+  <a href="/cocktail-sort" class=" astro-JY7BTWSF">
+    Cocktail Sort
+  </a>
+</li>
+
+
+        <li class="astro-JY7BTWSF">
+  <a href="/quick-sort" class=" astro-JY7BTWSF">
+    Quick Sort
   </a>
 </li>
 
@@ -76,23 +97,23 @@
     </ul>
 </nav>
     <div class="visualizer">
-  <div class="astro-WY4PWO2F">
-  <input type="range" min="0" max="80" value="0" id="element-slider" class="astro-WY4PWO2F">
-  <p id="element-value" class="astro-WY4PWO2F">Loading...</p>
+  <div class="astro-T64EG6ZV">
+  <input type="range" min="0" max="80" value="0" id="element-slider" class="astro-T64EG6ZV">
+  <p id="element-value" class="astro-T64EG6ZV">Loading...</p>
 </div>
 
 
   <div id="alg-window" class="window"></div>
-  <div class="astro-EJNDKLFX">
-  <button id="play" class="astro-EJNDKLFX">▶️</button>
-  <button id="shuffle" class="astro-EJNDKLFX">🔀</button>
-  <button id="sound" class="astro-EJNDKLFX">🔇</button>
+  <div class="astro-HMENF77N">
+  <button id="play" class="astro-HMENF77N">▶️</button>
+  <button id="shuffle" class="astro-HMENF77N">🔀</button>
+  <button id="sound" class="astro-HMENF77N">🔇</button>
 </div>
 
 
-  <div class="astro-WY4PWO2F">
-  <input type="range" min="4" max="100" value="10" id="speed-slider" class="astro-WY4PWO2F">
-  <p id="speed-value" class="astro-WY4PWO2F">Loading...</p>
+  <div class="astro-T64EG6ZV">
+  <input type="range" min="4" max="100" value="10" id="speed-slider" class="astro-T64EG6ZV">
+  <p id="speed-value" class="astro-T64EG6ZV">Loading...</p>
 </div>
 
   
@@ -207,11 +228,11 @@
 
 
 
-    <div class="description astro-KCMOB562">
-      <div class="explanation astro-KCMOB562">
-        <h3 class="astro-KCMOB562">Insertion Sort</h3>
-        <link rel="stylesheet" href="/assets/insertion-sort.bf2f8602.css" />
-<link rel="stylesheet" href="/assets/insertion-sort.2cb289d0.css" /><script type="module" src="/hoisted.b1351d28.js"></script><p>
+    <div class="description astro-AN6OOZF6">
+      <div class="explanation astro-AN6OOZF6">
+        <h3 class="astro-AN6OOZF6">Insertion Sort</h3>
+        <link rel="stylesheet" href="/assets/bubble-sort.426410ba.css" />
+<link rel="stylesheet" href="/assets/bubble-sort.14980c2b.css" /><script type="module" src="/hoisted.79d22dea.js"></script><p>
     Insertion sort is a simple sorting algorithm that organizes elements in an
     array by repeatedly shifting elements to the right until the correct
     position for the current element is found. For each element, it compares it with
@@ -228,45 +249,45 @@
   </p>
       </div>
 
-      <a aria-disabled="true" class="btn astro-KCMOB562">Code coming soon</a>
-      <div class="onotation astro-KCMOB562">
-        <table class="astro-WB4CSSUS">
-  <tr class="astro-WB4CSSUS">
-    <th colspan="4" class="astro-WB4CSSUS">Big O Notation</th>
+      <a aria-disabled="true" class="btn astro-AN6OOZF6">Code coming soon</a>
+      <div class="onotation astro-AN6OOZF6">
+        <table class="astro-MZAZOZTJ">
+  <tr class="astro-MZAZOZTJ">
+    <th colspan="4" class="astro-MZAZOZTJ">Big O Notation</th>
   </tr>
-  <tr class="astro-WB4CSSUS">
-    <td colspan="3" class="astro-WB4CSSUS">Time complexity</td>
-    <td class="astro-WB4CSSUS">Space complexity</td>
+  <tr class="astro-MZAZOZTJ">
+    <td colspan="3" class="astro-MZAZOZTJ">Time complexity</td>
+    <td class="astro-MZAZOZTJ">Space complexity</td>
   </tr>
-  <tr class="astro-WB4CSSUS">
-    <td class="astro-WB4CSSUS">Worst</td>
-    <td class="astro-WB4CSSUS">Average</td>
-    <td class="astro-WB4CSSUS">Best</td>
-    <td class="astro-WB4CSSUS">Worst</td>
+  <tr class="astro-MZAZOZTJ">
+    <td class="astro-MZAZOZTJ">Worst</td>
+    <td class="astro-MZAZOZTJ">Average</td>
+    <td class="astro-MZAZOZTJ">Best</td>
+    <td class="astro-MZAZOZTJ">Worst</td>
   </tr>
-  <tr class="astro-WB4CSSUS">
-    <td class="red astro-WB4CSSUS">O(n^2)</td>
-    <td class="red astro-WB4CSSUS">Θ(n^2)</td>
-    <td class="orange astro-WB4CSSUS">Ω(n)</td>
-    <td class="green astro-WB4CSSUS">O(1)</td>
+  <tr class="astro-MZAZOZTJ">
+    <td class="red astro-MZAZOZTJ">O(n^2)</td>
+    <td class="red astro-MZAZOZTJ">Θ(n^2)</td>
+    <td class="orange astro-MZAZOZTJ">Ω(n)</td>
+    <td class="green astro-MZAZOZTJ">O(1)</td>
   </tr>
 
 
 
 </table>
-        <p class="astro-KCMOB562">
+        <p class="astro-AN6OOZF6">
           Big O Notation defines the lower, average and upper bounds of an
           algorithm, where Time complexity determines the amount of operations,
           and Space complexity the amount of memory that can be used
         </p>
       </div>
 
-      <div class="canvas astro-KCMOB562">
-        <a href="https://chechu.dev" class="astro-KCMOB562">
-          <div class="background astro-KCMOB562"></div>
-          <div class="background-a astro-KCMOB562"></div>
+      <div class="canvas astro-AN6OOZF6">
+        <a href="https://chechu.dev" class="astro-AN6OOZF6">
+          <div class="background astro-AN6OOZF6"></div>
+          <div class="background-a astro-AN6OOZF6"></div>
 
-          <img width="350" height="300" src="/img/ChechuDEV.png" alt="Chechu DEV" class="astro-KCMOB562">
+          <img width="350" height="300" src="/img/ChechuDEV.png" alt="Chechu DEV" class="astro-AN6OOZF6">
         </a>
         <!--<canvas id="graph" width="350" height="300"> </canvas>-->
         <!--<span>Work in progress</span>-->
@@ -274,32 +295,32 @@
     </div>
   </section>
 
-     <footer class="astro-7GOUPJE5">
-  <p class="astro-7GOUPJE5">
-    Algorithm Visualizer by <a href="https://chechu.dev/?ref=alg-f" class="astro-7GOUPJE5">ChechuDEV</a>
+     <footer class="astro-AU4UEULA">
+  <p class="astro-AU4UEULA">
+    Algorithm Visualizer by <a href="https://chechu.dev/?ref=alg-f" class="astro-AU4UEULA">ChechuDEV</a>
 
   </p>
-   <div class="astro-7GOUPJE5">
-    <a href="/privacy-policy" class="astro-7GOUPJE5">Privacy policy</a>
-    <a href="/terms-of-service" class="astro-7GOUPJE5">Terms of service</a>
-    <a href="/sitemap-index.xml" class="astro-7GOUPJE5">sitemap.xml</a>
+   <div class="astro-AU4UEULA">
+    <a href="/privacy-policy" class="astro-AU4UEULA">Privacy policy</a>
+    <a href="/terms-of-service" class="astro-AU4UEULA">Terms of service</a>
+    <a href="/sitemap-index.xml" class="astro-AU4UEULA">sitemap.xml</a>
     </div> 
-    <div class="astro-7GOUPJE5">
-         <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new?assignees=&labels=&template=bug_report.md&title=" class="astro-7GOUPJE5">Report a bug</a>
-    <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new?assignees=&labels=&template=feature_request.md&title=" class="astro-7GOUPJE5">Request a feature</a>
-    <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new/choose" class="astro-7GOUPJE5">Other issues?</a>
+    <div class="astro-AU4UEULA">
+         <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new?assignees=&labels=&template=bug_report.md&title=" class="astro-AU4UEULA">Report a bug</a>
+    <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new?assignees=&labels=&template=feature_request.md&title=" class="astro-AU4UEULA">Request a feature</a>
+    <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new/choose" class="astro-AU4UEULA">Other issues?</a>
     </div>
 
 
 </footer>
 
 
-  <div id="consent" class="astro-7HX2V4C6">
-  <h2 class="astro-7HX2V4C6">Cookies & Privacy</h2>
-  <p class="astro-7HX2V4C6">This site uses cookies to ensure you the best experiences of all.</p><p class="astro-7HX2V4C6">
-    By continuing, I must assume you're okay with them, however, <a href="/privacy-policy" class="astro-7HX2V4C6">you can read more about them here.</a>
+  <div id="consent" class="astro-Z2CUNSWX">
+  <h2 class="astro-Z2CUNSWX">Cookies & Privacy</h2>
+  <p class="astro-Z2CUNSWX">This site uses cookies to ensure you the best experiences of all.</p><p class="astro-Z2CUNSWX">
+    By continuing, I must assume you're okay with them, however, <a href="/privacy-policy" class="astro-Z2CUNSWX">you can read more about them here.</a>
   </p>
-  <a id="continue" class="btn astro-7HX2V4C6">Continue</a>
+  <a id="continue" class="btn astro-Z2CUNSWX">Continue</a>
 </div>
 
 
