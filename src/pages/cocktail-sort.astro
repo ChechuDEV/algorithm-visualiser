@@ -1,0 +1,37 @@
+---
+import type Complexity from "../components/visualiser/description/BigONotation.astro";
+import Algorithm from "../layouts/Algorithm.astro";
+const best: Complexity = { expression: "n", color: "orange" };
+const average: Complexity = { expression: "n^2", color: "red" };
+const worst: Complexity = { expression: "n^2", color: "red" };
+const space: Complexity = { expression: "1", color: "green" };
+---
+
+<Algorithm
+  title="Cocktail shaker Sort"
+  best={best}
+  average={average}
+  worst={worst}
+  space={space}
+>
+  <p>
+    Cocktail shaker sort, also known as bidirectional bubble sort, cocktail sort,
+    shaker sort, ripple sort, shuffle sort, or shuttle sort, is a variation of
+    bubble sort that is both a stable sorting algorithm and a comparison sort.
+    The algorithm differs from bubble sort in that it sorts in both directions
+    on each pass through the list. This sorting algorithm is only marginally
+    more difficult to implement than bubble sort, and solves the problem of
+    turtles in bubble sort.
+  </p>
+  <a id="discover" href="#">Read more</a>
+  <p id="additional" class="hidden">
+    The cocktail shaker sort is a variation of bubble sort that is both a stable
+    sorting algorithm and a comparison sort. The algorithm differs from bubble
+    sort in that it sorts in both directions on each pass through the list. This
+    sorting algorithm is only marginally more difficult to implement than bubble
+    sort and only marginally more efficient than bubble sort, so it is not often
+    used in practice.
+  </p>
+</Algorithm>
+
+<script src="../scripts/CocktailSort.ts"></script>
