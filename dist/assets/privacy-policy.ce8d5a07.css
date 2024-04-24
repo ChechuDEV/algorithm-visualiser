@@ -1,0 +1,1 @@
+body{counter-reset:h3counter}h3:where(.astro-D6YLAOYA):before{content:counter(h3counter) ".\a0\a0";counter-increment:h3counter}

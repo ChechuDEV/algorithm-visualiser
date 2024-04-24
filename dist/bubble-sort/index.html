@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EGVQVT5SWL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EGVQVT5SWL');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#fff">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta name="generator" content="Astro v1.9.1">
+  <title>Bubble Sort - Algorithm Visualiser</title>
+<link rel="stylesheet" href="/assets/bubble-sort.426410ba.css" />
+<link rel="stylesheet" href="/assets/bubble-sort.14980c2b.css" /><script type="module" src="/hoisted.785970e0.js"></script></head>
+
+
+
+  <body>
+    <header class="astro-24QJATBP">
+  <div class="header astro-24QJATBP">
+    <h1 class="astro-24QJATBP">Algorithm visualiser</h1>
+    <h3 class="astro-24QJATBP"><a href="https://chechu.dev/?ref=alg-h" class="astro-24QJATBP">by ChechuDEV</a></h3>
+  </div>
+
+  <nav class="astro-YG2MDAW7">
+  <ul class="astro-YG2MDAW7">
+    <li class="nav-link">
+    <a href="/" class="">
+        Home
+    </a>
+</li>
+    <li class="nav-link">
+    <a href="/selection-sort" class="">
+        Visualiser
+    </a>
+</li>
+  </ul>
+</nav>
+
+
+</header>
+
+
+    <section class="container astro-AN6OOZF6">
+    <nav class="astro-3LZN3HNM">
+    <ul class="astro-3LZN3HNM">
+        <li class="astro-JY7BTWSF">
+  <a href="/selection-sort" class=" astro-JY7BTWSF">
+    Selection Sort
+  </a>
+</li>
+
+
+        <li class="astro-JY7BTWSF">
+  <a href="/insertion-sort" class=" astro-JY7BTWSF">
+    Insertion Sort
+  </a>
+</li>
+
+
+        <li class="astro-JY7BTWSF">
+  <a href="/bubble-sort" class=" astro-JY7BTWSF">
+    Bubble Sort
+  </a>
+</li>
+
+
+        <li class="astro-JY7BTWSF">
+  <a href="/cocktail-sort" class=" astro-JY7BTWSF">
+    Cocktail Sort
+  </a>
+</li>
+
+
+        <li class="astro-JY7BTWSF">
+  <a href="/quick-sort" class=" astro-JY7BTWSF">
+    Quick Sort
+  </a>
+</li>
+
+
+    </ul>
+</nav>
+    <div class="visualizer">
+  <div class="astro-T64EG6ZV">
+  <input type="range" min="0" max="80" value="0" id="element-slider" class="astro-T64EG6ZV">
+  <p id="element-value" class="astro-T64EG6ZV">Loading...</p>
+</div>
+
+
+  <div id="alg-window" class="window"></div>
+  <div class="astro-HMENF77N">
+  <button id="play" class="astro-HMENF77N">▶️</button>
+  <button id="shuffle" class="astro-HMENF77N">🔀</button>
+  <button id="sound" class="astro-HMENF77N">🔇</button>
+</div>
+
+
+  <div class="astro-T64EG6ZV">
+  <input type="range" min="4" max="100" value="10" id="speed-slider" class="astro-T64EG6ZV">
+  <p id="speed-value" class="astro-T64EG6ZV">Loading...</p>
+</div>
+
+  
+
+  <div class="stats">
+    <div class="stat">
+  <div class="stat-name">
+    <h4>OPERATIONS</h4>
+    <sup class="ref">[1]</sup>
+  </div>
+  <div class="mag">
+    <p id="operations">0</p><p class="unit">ops.</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>SWAPS</h4>
+    <sup class="ref">[2]</sup>
+  </div>
+  <div class="mag">
+    <p id="swaps">0</p><p class="unit">ops.</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>GETS</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="gets">0</p><p class="unit">ops.</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>SETS</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="sets">0</p><p class="unit">ops.</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>COMPARISONS</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="comparisons">0</p><p class="unit">comp.</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>REAL TIME</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="real-time">0</p><p class="unit">ms</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>VISUAL TIME</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="visual-time">0</p><p class="unit">sec</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>OPS PER MS</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="ops-per-ms">0</p><p class="unit">ops/ms</p>
+  </div>
+</div>
+
+
+    <div class="stat">
+  <div class="stat-name">
+    <h4>COMPS PER MS</h4>
+    
+  </div>
+  <div class="mag">
+    <p id="comps-per-ms">0</p><p class="unit">comp/ms</p>
+  </div>
+</div>
+
+
+  </div>
+  <div class="info">
+    <p><sup>[1]</sup> Sum of Swap, Get, Set and Comparison operations.</p>
+    <p><sup>[2]</sup> Swap operations do not count as neither Get nor Set operations.</p>
+  </div>
+</div>
+
+
+
+
+    <div class="description astro-AN6OOZF6">
+      <div class="explanation astro-AN6OOZF6">
+        <h3 class="astro-AN6OOZF6">Bubble Sort</h3>
+        <link rel="stylesheet" href="/assets/bubble-sort.426410ba.css" />
+<link rel="stylesheet" href="/assets/bubble-sort.14980c2b.css" /><script type="module" src="/hoisted.785970e0.js"></script><p>
+    Bubble sort is a simple sorting algorithm that repeatedly steps through the
+    list, compares adjacent elements, and swaps them if they are in the wrong
+    order. The pass through the list is repeated until no swaps are needed,
+    which indicates that the list is sorted.
+  </p><a id="discover" href="#">Read more</a><p id="additional" class="hidden">
+    Bubble sort is not a practical sorting algorithm because of its poor
+    performance. It has a time complexity of O(n²) on average, which makes it
+    inefficient on large data sets. However, bubble sort is a simple algorithm
+    that is easy to understand and implement, which makes it a good choice for
+    educational purposes and simple cases.
+  </p>
+      </div>
+
+      <a aria-disabled="true" class="btn astro-AN6OOZF6">Code coming soon</a>
+      <div class="onotation astro-AN6OOZF6">
+        <table class="astro-MZAZOZTJ">
+  <tr class="astro-MZAZOZTJ">
+    <th colspan="4" class="astro-MZAZOZTJ">Big O Notation</th>
+  </tr>
+  <tr class="astro-MZAZOZTJ">
+    <td colspan="3" class="astro-MZAZOZTJ">Time complexity</td>
+    <td class="astro-MZAZOZTJ">Space complexity</td>
+  </tr>
+  <tr class="astro-MZAZOZTJ">
+    <td class="astro-MZAZOZTJ">Worst</td>
+    <td class="astro-MZAZOZTJ">Average</td>
+    <td class="astro-MZAZOZTJ">Best</td>
+    <td class="astro-MZAZOZTJ">Worst</td>
+  </tr>
+  <tr class="astro-MZAZOZTJ">
+    <td class="red astro-MZAZOZTJ">O(n^2)</td>
+    <td class="red astro-MZAZOZTJ">Θ(n^2)</td>
+    <td class="orange astro-MZAZOZTJ">Ω(n)</td>
+    <td class="green astro-MZAZOZTJ">O(1)</td>
+  </tr>
+
+
+
+</table>
+        <p class="astro-AN6OOZF6">
+          Big O Notation defines the lower, average and upper bounds of an
+          algorithm, where Time complexity determines the amount of operations,
+          and Space complexity the amount of memory that can be used
+        </p>
+      </div>
+
+      <div class="canvas astro-AN6OOZF6">
+        <a href="https://chechu.dev" class="astro-AN6OOZF6">
+          <div class="background astro-AN6OOZF6"></div>
+          <div class="background-a astro-AN6OOZF6"></div>
+
+          <img width="350" height="300" src="/img/ChechuDEV.png" alt="Chechu DEV" class="astro-AN6OOZF6">
+        </a>
+        <!--<canvas id="graph" width="350" height="300"> </canvas>-->
+        <!--<span>Work in progress</span>-->
+      </div>
+    </div>
+  </section>
+
+     <footer class="astro-AU4UEULA">
+  <p class="astro-AU4UEULA">
+    Algorithm Visualizer by <a href="https://chechu.dev/?ref=alg-f" class="astro-AU4UEULA">ChechuDEV</a>
+
+  </p>
+   <div class="astro-AU4UEULA">
+    <a href="/privacy-policy" class="astro-AU4UEULA">Privacy policy</a>
+    <a href="/terms-of-service" class="astro-AU4UEULA">Terms of service</a>
+    <a href="/sitemap-index.xml" class="astro-AU4UEULA">sitemap.xml</a>
+    </div> 
+    <div class="astro-AU4UEULA">
+         <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new?assignees=&labels=&template=bug_report.md&title=" class="astro-AU4UEULA">Report a bug</a>
+    <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new?assignees=&labels=&template=feature_request.md&title=" class="astro-AU4UEULA">Request a feature</a>
+    <a href="https://github.com/ChechuDEV/algorithm-visualiser/issues/new/choose" class="astro-AU4UEULA">Other issues?</a>
+    </div>
+
+
+</footer>
+
+
+  <div id="consent" class="astro-Z2CUNSWX">
+  <h2 class="astro-Z2CUNSWX">Cookies & Privacy</h2>
+  <p class="astro-Z2CUNSWX">This site uses cookies to ensure you the best experiences of all.</p><p class="astro-Z2CUNSWX">
+    By continuing, I must assume you're okay with them, however, <a href="/privacy-policy" class="astro-Z2CUNSWX">you can read more about them here.</a>
+  </p>
+  <a id="continue" class="btn astro-Z2CUNSWX">Continue</a>
+</div>
+
+
+
+<style>
+    .policy-disappear {
+animation: cookies-disappear 500ms ease-in-out forwards;
+    }
+
+    @keyframes cookies-disappear {
+	100% {
+		bottom: -500px;
+	}
+}
+
+</style>
+
+
+<script>
+
+    const consent = document.getElementById("consent");
+    const continueBtn = document.getElementById("continue");
+
+continueBtn.onclick = () => {
+	consent.classList.add("policy-disappear");
+	setTimeout(() => {
+		consent.remove();
+	}, 1000);
+	window.localStorage.setItem("hide-consent", "14JAN");
+};
+
+if (window.localStorage.getItem("hide-consent") == "14JAN") {
+	consent.remove();
+}
+
+</script>
+
+
+
+
+
+
+<!--<script src="../scripts/Canvas.ts"></script>-->
+
+<script>
+    const discoverButton = document.getElementById("discover");
+    const additional = document.getElementById("additional");
+    
+
+    if(discoverButton != null || discoverButton != undefined) {
+         discoverButton.onclick = () => {
+        additional.classList.remove("hidden");
+        discoverButton.remove();
+    }
+    }
+
+   
+</script>
+
+</body></html>
+
+
+
