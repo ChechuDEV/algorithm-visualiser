@@ -1,0 +1,33 @@
+---
+import type Complexity from "../components/visualiser/description/BigONotation.astro";
+import Algorithm from "../layouts/Algorithm.astro";
+const best: Complexity = { expression: "n", color: "orange" };
+const average: Complexity = { expression: "n^2", color: "red" };
+const worst: Complexity = { expression: "n^2", color: "red" };
+const space: Complexity = { expression: "1", color: "green" };
+---
+
+<Algorithm
+  title="Bubble Sort"
+  best={best}
+  average={average}
+  worst={worst}
+  space={space}
+>
+  <p>
+    Bubble sort is a simple sorting algorithm that repeatedly steps through the
+    list, compares adjacent elements, and swaps them if they are in the wrong
+    order. The pass through the list is repeated until no swaps are needed,
+    which indicates that the list is sorted.
+  </p>
+  <a id="discover" href="#">Read more</a>
+  <p id="additional" class="hidden">
+    Bubble sort is not a practical sorting algorithm because of its poor
+    performance. It has a time complexity of O(n²) on average, which makes it
+    inefficient on large data sets. However, bubble sort is a simple algorithm
+    that is easy to understand and implement, which makes it a good choice for
+    educational purposes and simple cases.
+  </p>
+</Algorithm>
+
+<script src="../scripts/BubbleSort.ts"></script>
