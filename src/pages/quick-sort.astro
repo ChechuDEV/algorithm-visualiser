@@ -1,0 +1,33 @@
+---
+import type Complexity from "../components/visualiser/description/BigONotation.astro";
+import Algorithm from "../layouts/Algorithm.astro";
+const best: Complexity = { expression: "nlog n", color: "green" };
+const average: Complexity = { expression: "nlog n", color: "green" };
+const worst: Complexity = { expression: "n^2", color: "red" };
+const space: Complexity = { expression: "log n", color: "orange" };
+---
+
+<Algorithm
+  title="Cocktail shaker Sort"
+  best={best}
+  average={average}
+  worst={worst}
+  space={space}
+>
+  <p>
+   Quick sort is a comparison sort that is efficient on average. It is a divide
+    and conquer algorithm that works by selecting a pivot element from the array
+    and partitioning the other elements into two sub-arrays according to whether
+    they are less than or greater than the pivot. The sub-arrays are then sorted
+    recursively. This can be done in-place, requiring small additional amounts of
+    memory to perform the sorting.
+  </p>
+  <a id="discover" href="#">Read more</a>
+  <p id="additional" class="hidden">
+    There are many different versions of quicksort that pick pivot in different
+    ways. The choice of pivot can make a big difference in the performance of
+    quicksort.
+  </p>
+</Algorithm>
+
+<script src="../scripts/QuickSort.ts"></script>
